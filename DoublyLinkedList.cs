@@ -45,5 +45,36 @@ namespace DoublyLinkedList
             }
             length++;
         }
+
+        public void PrintList()
+        {
+            Node temp = head;
+            int indexNumber = 0;
+            Console.WriteLine("The nodes of DoublyLinkedList : ");
+            Console.WriteLine("- - - - - - - - - - - - - - - - ");
+
+            while (temp != null)
+            {
+                Console.WriteLine(temp.data);
+                temp = temp.next;
+                indexNumber++;
+            }
+        }
+
+        public void PrintLength()
+        {
+            Console.WriteLine("The length of DoublyLinkedList : " + length);
+        }
+
+        public void PrintHead()
+        {
+            Console.WriteLine("The head of DoublyLinkedList : " + head.data);
+        }
+
+        public void PrintTail()
+        {
+            Console.WriteLine("The tail of DoublyLinkedList : " + tail.data);
+        }
+
     }
 }

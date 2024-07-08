@@ -4,7 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            DoublyLinkedList doublyLinkedList = new DoublyLinkedList(12);
+            doublyLinkedList.AppendList(13);
+            doublyLinkedList.AppendList(15);
+            doublyLinkedList.AppendList(5);
+            doublyLinkedList.AppendList(7);
         }
     }
 }
