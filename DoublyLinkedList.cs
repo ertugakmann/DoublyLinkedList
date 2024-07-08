@@ -28,6 +28,22 @@ namespace DoublyLinkedList
             length = 1;
         }
 
+        public void AppendList(int data)
+        {
+            Node newNode = new Node(data);
 
+            if (length == 0)
+            {
+              head = newNode;
+              tail = newNode;
+            }
+            else
+            {
+                tail.next = newNode;
+                newNode.prev = tail;
+                tail = newNode;
+            }
+            length++;
+        }
     }
 }
