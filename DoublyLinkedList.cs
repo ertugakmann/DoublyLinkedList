@@ -76,5 +76,75 @@ namespace DoublyLinkedList
             Console.WriteLine("The tail of DoublyLinkedList : " + tail.data);
         }
 
+        public Node DeleteLastNode()
+        {
+            if (length == 0)
+                return null;
+
+            Node temp = tail;
+
+            if ( length == 1)
+            {
+                head = null;
+                tail = null;
+            }
+            else 
+            {
+                tail = tail.prev;
+                tail.next = null;
+                temp.prev = null;
+            }
+
+            length--;
+            return temp;
+            
+        }
+
+        public Node DeleteFirstNode()
+        {
+            if (length == 0)
+                return null;
+
+
+            Node temp = head;
+
+
+            if (length == 1)
+            {
+                head = null;
+                tail = null;
+
+                return head;
+            }
+            else
+            {
+                head = head.next;
+
+                temp.next = null;
+                head.prev = null;       
+            }
+            return temp;
+            length--;
+
+        }
+
+        public void AddFirst(int data)
+        {
+            Node newNode = new Node(data);
+
+            if(length == 0)
+            {
+                head = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                newNode.next = head;
+                head.prev = newNode;
+                head = newNode;
+            }
+
+            length++;
+        }
     }
 }
