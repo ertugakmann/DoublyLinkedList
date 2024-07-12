@@ -146,5 +146,109 @@ namespace DoublyLinkedList
 
             length++;
         }
+
+       
+        public Node GetNode(int index)
+        {
+            if (index < 0 || index > length)
+                return null;
+
+            Node temp = head;
+
+            if(index < length / 2)
+            {
+                for(int i = 0; index > i; i++)
+                {
+                    temp = temp.next;
+                }
+            }
+            else
+            {
+                temp = tail;
+
+                for (int i = length - 1; i > index; i--)
+                {
+                    temp = temp.prev;
+                }
+            }
+            return temp;
+        }
+
+        public void SetNode(int index, int data)
+        {
+            if(index >= 0 && index < length)
+            {
+                Node temp = GetNode(index);
+
+                temp.data = data; 
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid index number..");
+            }
+        }
+
+        public bool InsertNode(int data, int index)
+        {
+            if (index < 0 || index > length)
+                return false;
+
+            if (index == length) 
+            {
+                AppendList(data);
+                return true;
+            }
+                
+
+            if(index == 0)
+            {
+                AddFirst(data);
+                return true;
+            }
+
+            Node newNode = new Node(data);
+            Node prevNode = GetNode(index - 1);
+            Node nextNode = GetNode(index);
+
+            prevNode.next = newNode;
+            newNode.prev = prevNode;
+
+            newNode.next = nextNode;
+            nextNode.prev = newNode;
+            length++;
+            return true;
+                
+        }
+
+        public Node DeleteNode(int index)
+        {
+            Node deleteNode = GetNode(index);
+
+            if (index >= 0 && index < length)
+            {
+                if (index == 0)
+                {
+                    DeleteFirstNode();
+                }
+                else if (index == length)
+                {
+                    DeleteLastNode();
+                }
+                else
+                {
+                    deleteNode.next.prev = deleteNode.prev;
+                    deleteNode.prev.next = deleteNode.next;
+
+                    deleteNode.next = null;
+                    deleteNode.prev = null;
+                    length--;
+                }
+            }
+            else
+            {
+                return null;
+            }
+            return deleteNode;
+        }
     }
 }

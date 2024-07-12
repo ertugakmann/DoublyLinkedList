@@ -11,16 +11,8 @@
             doublyLinkedList.AppendList(7);
             doublyLinkedList.PrintList();
 
-
-            Console.WriteLine("_______");
-
-            doublyLinkedList.AddFirst(13);
-            doublyLinkedList.PrintList();
-            doublyLinkedList.PrintHead();
-
-            doublyLinkedList.DeleteFirstNode();
-            doublyLinkedList.PrintHead();
-            doublyLinkedList.PrintList();
+            doublyLinkedList.InsertNode(99, 5);
+            doublyLinkedList.PrintList(); 
         }
     }
 }
